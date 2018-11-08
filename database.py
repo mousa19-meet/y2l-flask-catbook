@@ -8,11 +8,26 @@ Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-def create_cat(name):
-    cat_object = Cat(name=name)
+def create_cat(name,vote):
+    cat_object = Cat(name=name,voter=vote)
     session.add(cat_object)
     session.commit()
 
 def get_all_cats():
     cats = session.query(Cat).all()
     return cats
+
+def query_by_id(id):
+   cat = session.query(
+       Cat).filter_by(
+       id=id).first()
+   name = cat.name
+   return name
+
+def update_voter(id):
+    cat = session.query(
+       Cat).filter_by(
+       id=id).first()
+    cat.voter += 1
+    session.commit()
+
