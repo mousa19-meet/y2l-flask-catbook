@@ -8,7 +8,8 @@
 	<h1> Welcome  to {{ n }}! </h1>
 	<div class="col-4">
 		<img class="card-img-top" src="{{url_for('static', filename='images/cat1.jpg')}}">
-		<a href="/" class="btn btn-primary"> Like </a>
+		<a href="/like/{{d}}" class="btn btn-primary"> Like </a>
+		<a href="/delete/{{d}}" class="btn btn-primary">delete?</a>
 	</div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

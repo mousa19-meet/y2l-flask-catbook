@@ -13,6 +13,10 @@ def create_cat(name,vote):
     session.add(cat_object)
     session.commit()
 
+def delete_cat_by_id(id):
+	cat = session.query(Cat).filter_by(id=id).delete()
+	session.commit()
+
 def get_all_cats():
     cats = session.query(Cat).all()
     return cats
